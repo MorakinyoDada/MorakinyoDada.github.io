@@ -2,32 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Morakinyo Dada | Early-Career QA Tester</title>
-  <meta name="description" content="Morakinyo Dada is an early-career QA Tester transitioning from aviation service leadership into Quality Assurance, with hands-on experience in manual testing, API testing, and SQL validation.">
-
+  <title>Morakinyo Dada | Quality Assurance Tester</title>
+  <meta name="description" content="Morakinyo Dada is an early-career Quality Assurance Tester transitioning from aviation safety leadership into software quality, with hands-on experience in manual testing, API testing, and SQL validation.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<p style="max-width:1000px;margin:15px auto 0 auto;">
-  👉 <a href="https://github.com/MorakinyoDada/qa-portfolio" target="_blank">
-    View my QA Portfolio on GitHub
-  </a>
-</p>
 
   <style>
+    :root {
+      --primary: #0a2540;
+      --accent: #1db9a7;
+      --background: #f4f7fb;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
       margin: 0;
-      color: #333;
-      line-height: 1.6;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
     }
 
     header {
-      background: #f5f7fa;
-      padding: 30px 20px;
-      border-bottom: 1px solid #ddd;
+      background: linear-gradient(135deg, var(--primary), #102a43);
+      color: #ffffff;
+      padding: 50px 20px 40px;
     }
 
     nav {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -37,60 +41,115 @@
 
     nav h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: 28px;
+      font-weight: 700;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 22px;
       padding: 0;
-      margin: 10px 0 0 0;
+      margin: 10px 0 0;
     }
 
     nav ul li a {
+      color: #ffffff;
+      font-weight: 600;
       text-decoration: none;
-      color: #0366d6;
-      font-weight: bold;
+      opacity: 0.9;
     }
 
     nav ul li a:hover {
+      opacity: 1;
       text-decoration: underline;
     }
 
+    header .subtitle {
+      max-width: 1100px;
+      margin: 20px auto 10px;
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    header .cta {
+      max-width: 1100px;
+      margin: 10px auto 0;
+    }
+
+    header .cta a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
     section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 60px 20px;
-      border-bottom: 1px solid #eee;
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 40px;
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     }
 
     h2 {
       margin-top: 0;
-      color: #222;
+      color: var(--primary);
+      font-size: 26px;
+    }
+
+    h3 {
+      color: var(--primary);
+      margin-top: 25px;
     }
 
     ul {
       padding-left: 20px;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: #f5f7fa;
-      font-size: 14px;
+    li {
+      margin-bottom: 8px;
     }
 
     a {
-      color: #0366d6;
+      color: var(--primary);
       text-decoration: none;
+      font-weight: 600;
     }
 
     a:hover {
       text-decoration: underline;
     }
+
+    .project {
+      border-left: 5px solid var(--accent);
+      padding-left: 20px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 14px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 14px;
+        font-size: 14px;
+      }
+
+      section {
+        margin: 30px 15px;
+        padding: 30px 20px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -100,72 +159,61 @@
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#qa">Quality Assurance</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#case-study">QA Case Study</a></li>
-      <li><a href="#resume">Resume</a></li>
+      <li><a href="#case-study">Case Study</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-  <p style="max-width:1000px;margin:20px auto 0 auto;">
+
+  <p class="subtitle">
     Quality Assurance Tester transitioning from aviation safety leadership into software quality
+  </p>
+
+  <p class="cta">
+    👉 <a href="https://github.com/MorakinyoDada/qa-portfolio" target="_blank">
+      View my QA Portfolio on GitHub
+    </a>
   </p>
 </header>
 
 <section id="about">
   <h2>About Me</h2>
   <p>
-I am an early-career Quality Assurance professional with over 15 years of experience in customer service and 
-operational leadership across aviation, hospitality, and service-driven environments. 
-My career has been shaped by roles that demanded precision, accountability, and consistent adherence to standards,
-particularly in safety-critical and customer-facing operations.
-</p>
-<p>
-Before transitioning into Quality Assurance, I served as a Senior Flight Attendant, Cabin Crew Supervisor, and Inflight Manager,
-where I was responsible for enforcing operational procedures, supervising teams, managing incidents, and ensuring compliance in 
-high-pressure, time-sensitive situations. These roles required structured thinking, detailed documentation, risk awareness, and 
-clear communication, skills that closely align with modern QA practices.
-</p>
-  
+    I am an early-career Quality Assurance professional with over 15 years of experience in customer service
+    and operational leadership across aviation and service-driven environments. My career has been shaped
+    by roles that demanded precision, accountability, and strict adherence to standards, particularly in
+    safety-critical operations.
+  </p>
   <p>
-My transition into QA was intentional and skills-driven. I am currently building hands-on experience in manual testing, 
-test planning, test case design, defect reporting, API testing, and SQL data validation. 
-I approach quality with the mindset of understanding systems deeply, validating expected behavior thoroughly,
-and communicating findings clearly to support product improvement. I bring a calm, methodical, 
-and people-focused approach to QA, shaped by years of leadership, teamwork, and service excellence.
-</p>
+    Before transitioning into Quality Assurance, I served as a Senior Flight Attendant, Cabin Crew Supervisor,
+    and Inflight Manager, where I enforced procedures, supervised teams, managed incidents, and ensured
+    compliance in high-pressure, time-sensitive situations.
+  </p>
+  <p>
+    My transition into QA was intentional and skills-driven. I am building hands-on experience in manual
+    testing, test planning, test case design, defect reporting, API testing, and SQL data validation.
+    I bring a calm, methodical, and people-focused approach to QA, shaped by years of leadership and service excellence.
+  </p>
 </section>
 
 <section id="experience">
   <h2>Professional Experience</h2>
   <h3>Senior Flight Attendant / Cabin Crew Supervisor / Inflight Manager</h3>
   <p>
-    In this role, I held leadership responsibility for ensuring safety, compliance,
-    and service quality in high-pressure, time-sensitive environments.
-  </p>
-  <p>
-    My responsibilities included supervising teams, enforcing procedures, handling
-    incidents, and ensuring standards were consistently met. This experience strengthened
-    my attention to detail, documentation discipline, communication skills, and ability
-    to remain methodical under pressure.
+    Led cabin teams in safety-critical environments, ensuring regulatory compliance, procedural accuracy,
+    and consistent service quality. Responsibilities included documentation, risk assessment, incident handling,
+    and clear communication under pressure.
   </p>
 </section>
 
 <section id="qa">
-  <h2>Transition into Quality Assurance</h2>
+  <h2>Quality Assurance Skills</h2>
   <p>
-    My transition into Quality Assurance was driven by a strong interest in systems,
-    processes, and product quality. QA aligns closely with my strengths in structured
-    thinking, risk awareness, validation, and clear reporting.
+    My QA approach focuses on understanding requirements deeply, designing clear test cases, validating
+    behavior across layers, and documenting defects in a way that supports developers and improves product quality.
   </p>
 
-  <h3>QA Skills & Tools</h3>
   <ul>
-    <p>
-My QA approach focuses on understanding requirements deeply, designing clear test cases,
-validating data accurately, and documenting defects in a way that supports developers
-and improves overall product quality.
-</p>
     <li>Manual and exploratory testing</li>
     <li>Test plan and test case design</li>
     <li>Bug reporting and defect tracking</li>
@@ -175,23 +223,19 @@ and improves overall product quality.
     <li>Jira, GitHub, structured documentation</li>
   </ul>
 </section>
-  
+
 <section id="projects">
   <h2>QA Projects</h2>
-
   <div class="project">
     <h3>Manual QA Portfolio</h3>
     <p>
-      A structured QA portfolio demonstrating hands-on experience with
-      test planning, test case design, bug reporting, API testing, and SQL
-      data validation.
+      A structured QA portfolio demonstrating hands-on experience across the full QA lifecycle.
     </p>
     <ul>
-      <li>Test plans covering scope, objectives, and test strategy</li>
-      <li>Well-documented manual test cases with clear steps and expected results</li>
-      <li>Bug reports written with severity, priority, and reproducibility</li>
-      <li>API testing using Postman</li>
-      <li>SQL queries for backend data validation</li>
+      <li>Test plans defining scope, objectives, and approach</li>
+      <li>Well-documented manual test cases</li>
+      <li>Bug reports with severity and priority</li>
+      <li>API testing and SQL validation</li>
     </ul>
     <p>
       <a href="https://github.com/MorakinyoDada/qa-portfolio" target="_blank">
@@ -203,95 +247,27 @@ and improves overall product quality.
 
 <section id="case-study">
   <h2>Login Functionality – QA Case Study</h2>
-
   <p>
-    <strong>Context:</strong><br>
-    This case study is based on an academic Quality Assurance project designed to
-    simulate real-world testing practices. The objective was to validate the login
-    functionality of a web application, focusing on correctness, error handling,
-    and data integrity.
+    This case study is based on an academic QA project designed to simulate real-world testing practices.
+    The focus was on validating login functionality, a high-risk feature responsible for access control and security.
   </p>
 
-  <p>
-    Login is a high-risk feature because it controls user access, protects data,
-    and directly impacts security and user trust. For this reason, testing was
-    approached using both positive and negative scenarios.
-  </p>
-
-  <h3>Scope of Testing</h3>
+  <h3>Scope and Approach</h3>
   <ul>
-    <li>User interface validation (login form behavior)</li>
-    <li>Input validation and error messaging</li>
+    <li>UI validation and error handling</li>
+    <li>Positive and negative test scenarios</li>
     <li>API response validation</li>
     <li>Backend data verification using SQL</li>
   </ul>
 
-  <h3>Test Approach</h3>
   <p>
-    A risk-based, black-box testing approach was used. Test cases were designed
-    based on functional requirements and expected user behavior. Both valid and
-    invalid credential scenarios were executed to ensure the system handled
-    authentication correctly.
-  </p>
-
-  <h3>Test Scenarios Covered</h3>
-  <ul>
-    <li>Login with valid username and password</li>
-    <li>Login with invalid password</li>
-    <li>Login with empty or missing fields</li>
-    <li>System response to repeated failed login attempts</li>
-  </ul>
-
-  <h3>Defects Identified</h3>
-  <p>
-    During execution, defects were identified related to missing input validation
-    and unclear error messaging. Bug reports were documented with clear steps to
-    reproduce, expected results, actual results, severity, and priority to support
-    efficient resolution.
-  </p>
-
-  <h3>API and Database Validation</h3>
-  <p>
-    API testing was performed to validate authentication responses and HTTP status
-    codes. SQL queries were used to confirm user status, failed login attempts, and
-    last login timestamps, ensuring consistency between frontend behavior and backend data.
-  </p>
-
-  <h3>Outcome and Key Learnings</h3>
-  <p>
-    This case study strengthened my understanding of end-to-end QA workflows,
-    including requirement analysis, structured test design, defect communication,
-    and backend validation. It reinforced the importance of testing critical
-    features thoroughly and documenting findings clearly to improve overall product quality.
+    The project strengthened my understanding of end-to-end QA workflows and reinforced the importance of
+    thorough testing, clear documentation, and backend validation.
   </p>
 
   <p>
     👉 <a href="https://github.com/MorakinyoDada/qa-portfolio" target="_blank">
-      View related test plans, test cases, bug reports, API tests, and SQL validation on GitHub
-    </a>
-  </p>
-</section>
-
-
-  <section id="resume">
-  <h2>Resume</h2>
-  <p>
-    You can download my resume for a detailed overview of my professional
-    background, QA experience, and transferable skills.
-  </p>
-  <p>
-    <a href="resume.pdf" target="_blank">
-      Download Resume (PDF)
-    </a>
-  </p>
-</section>
-
-  
-<section id="portfolio">
-  <h2>Projects & Portfolio</h2>
-  <p>
-    👉 <a href="https://github.com/MorakinyoDada/qa-portfolio" target="_blank">
-      View my hands-on QA portfolio with test plans, test cases, bug reports, API tests, and SQL validation
+      View related QA artifacts on GitHub
     </a>
   </p>
 </section>
@@ -299,13 +275,12 @@ and improves overall product quality.
 <section id="contact">
   <h2>Contact</h2>
   <p>
-    I’m open to junior QA opportunities, internships, and roles where I can
-    contribute, learn, and grow as part of a quality-focused team.
+    I’m open to early-career QA roles and opportunities where attention to detail, clear communication,
+    and quality-focused thinking are valued.
   </p>
   <p>
     📞 Phone: <a href="tel:+15065367700">+1 (506) 536-7700</a><br>
     📧 Email: <a href="mailto:peter.akindada@gmail.com">peter.akindada@gmail.com</a><br>
-    💼 LinkedIn: <a href="https://www.linkedin.com" target="_blank">LinkedIn Profile</a><br>
     🧪 GitHub: <a href="https://github.com/MorakinyoDada" target="_blank">github.com/MorakinyoDada</a>
   </p>
 </section>
