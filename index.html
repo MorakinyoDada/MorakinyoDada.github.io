@@ -14,6 +14,57 @@
   <!-- DARK BLUE THEME QA PORTFOLIO -->
 
   <style>
+    /* ===================== */
+/* LIGHT MODE OVERRIDES */
+/* ===================== */
+
+body.light-mode {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.light-mode header {
+  background: rgba(248, 250, 252, 0.95);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.25);
+}
+
+body.light-mode section {
+  background: #ffffff;
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3 {
+  color: #0f172a;
+}
+
+body.light-mode p,
+body.light-mode li {
+  color: #334155;
+}
+
+body.light-mode .card-muted,
+body.light-mode .project,
+body.light-mode .contact-card {
+  background: #ffffff;
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+body.light-mode a {
+  color: #2563eb;
+}
+
+body.light-mode .hero-highlight {
+  background: rgba(37, 99, 235, 0.1);
+  color: #1e3a8a;
+}
+
+body.light-mode footer {
+  color: #475569;
+}
+
     :root {
       /* Blues */
       --bg-deep: #020617;          /* almost black navy */
@@ -1254,5 +1305,27 @@ body {
       <span>© Morakinyo Dada</span> · Quality Assurance Tester
     </footer>
   </div>
+  <script>
+  const toggle = document.getElementById("themeToggle");
+  const body = document.body;
+
+  // Load saved preference
+  if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light-mode");
+    toggle.textContent = "🌙 Dark";
+  }
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("light-mode");
+
+    if (body.classList.contains("light-mode")) {
+      localStorage.setItem("theme", "light");
+      toggle.textContent = "🌙 Dark";
+    } else {
+      localStorage.setItem("theme", "dark");
+      toggle.textContent = "☀️ Light";
+    }
+  });
+</script>
 </body>
 </html>
