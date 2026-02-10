@@ -13,30 +13,56 @@
 
   <style>
     :root {
-      /* Refined Blue Palette */
+      /* THEME: BLUE DARK (Default) */
       --bg-deep: #020617;
       --bg-main: #020c1b;
       --bg-hero: #02101f;
       --primary: #e5f0ff;
-      --muted: #a1a1aa;
-      --card: #041026;
-      --card-soft: #061730;
+      --muted: #9ca3af;
+      --card: #020b18;
+      --card-soft: #041424;
+      --border-subtle: rgba(59, 130, 246, 0.25);
+      --border-soft: rgba(148, 163, 184, 0.5);
       --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
       --accent-strong: #0ea5e9;
-      --success: #22c55e;
-      --warning: #facc15;
+      --accent-green: #22c55e;
       --danger: #fb7185;
-      
-      /* LEGIBILITY UPDATES: Larger Font Sizes */
-      --font-base: 18px;         /* Increased from 14/15px */
-      --font-small: 15px;        /* Increased from 11/12px */
-      --font-h1: 42px;           /* Hero Title */
-      --font-h2: 28px;           /* Section Headers */
-      --font-h3: 22px;           /* Subsection Headers */
+      --success: #22c55e;
+      --warning: #eab308;
+
+      /* FONT SIZE UPDATES */
+      --font-body: 18px;
+      --font-h1: 42px;
+      --font-h2: 26px;
+      --font-h3: 20px;
+      --font-small: 14px;
+    }
+
+    /* THEME: LIGHT VIEW */
+    .light-theme {
+      --bg-main: #f8fafc;
+      --bg-deep: #f1f5f9;
+      --bg-hero: #e2e8f0;
+      --primary: #0f172a;
+      --muted: #475569;
+      --card: #ffffff;
+      --card-soft: #f1f5f9;
+      --border-subtle: rgba(0, 0, 0, 0.1);
+      --border-soft: rgba(0, 0, 0, 0.2);
+      --accent: #0284c7;
     }
 
     html {
       scroll-behavior: smooth;
+    }
+    
+    section {
+      transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-2px);
     }
 
     * {
@@ -45,340 +71,449 @@
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: 
-        radial-gradient(circle at top right, #0b1120 0, transparent 50%),
-        radial-gradient(circle at bottom left, #082f49 0, transparent 55%),
-        var(--bg-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-main);
       color: var(--primary);
-      font-size: var(--font-base);
-      line-height: 1.8; /* Better spacing for readability */
+      font-size: var(--font-body);
+      line-height: 1.8;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     .page {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px 80px;
+      padding: 0 20px 60px;
     }
 
-    /* HEADER & NAVIGATION */
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      backdrop-filter: blur(15px);
-      background: rgba(2, 12, 27, 0.9);
-      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: var(--bg-main);
+      opacity: 0.96;
+      border-bottom: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     .header-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 18px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 14px;
     }
 
     .avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--success), var(--accent));
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 20% 20%, #22c55e, #38bdf8);
+      border: 2px solid var(--border-soft);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
+      font-weight: 700;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .brand-text h1 {
+      margin: 0;
       font-size: 22px;
-      color: white;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-text p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 18px;
       padding: 0;
       margin: 0;
+      font-size: 15px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     nav a {
       color: var(--primary);
       text-decoration: none;
-      font-size: 16px;
       font-weight: 500;
-      transition: color 0.3s;
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
     }
 
     nav a:hover {
+      background: var(--card-soft);
       color: var(--accent);
     }
 
-    .primary-btn {
-      background: var(--accent);
-      color: var(--bg-deep);
-      padding: 10px 20px;
+    /* THEME SWITCH BUTTON */
+    .theme-toggle {
+      background: var(--card-soft);
+      border: 1px solid var(--border-soft);
+      color: var(--primary);
+      padding: 8px 16px;
       border-radius: 50px;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 16px;
-      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* HERO SECTION */
+    .theme-toggle:hover {
+      border-color: var(--accent);
+    }
+
+    .primary-link {
+      background: var(--accent);
+      color: #fff !important;
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+    }
+
+    /* HERO */
+    main > section:first-of-type {
+      margin-top: 30px;
+    }
+
     .hero {
       display: grid;
-      grid-template-columns: 1.5fr 1fr;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
       gap: 40px;
-      padding: 60px 0;
       align-items: center;
     }
 
-    .hero h1 {
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid var(--border-subtle);
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero-highlight-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 10px var(--success);
+    }
+
+    .hero-title {
       font-size: var(--font-h1);
       line-height: 1.2;
-      margin-bottom: 20px;
-      color: #fff;
+      margin-bottom: 15px;
+      color: var(--primary);
     }
 
     .hero-subtitle {
       font-size: 20px;
       color: var(--muted);
-      margin-bottom: 30px;
+      max-width: 600px;
+      margin-bottom: 25px;
     }
 
-    .hero-graphic {
-      background: var(--card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
-      padding: 25px;
-      font-family: monospace;
-      font-size: var(--font-small);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    .hero-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 25px;
     }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .ghost-link {
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 15px;
+      border: 1px solid var(--border-soft);
+      color: var(--muted);
+      text-decoration: none;
+      background: var(--card-soft);
+    }
+
+    /* GRAPHIC CONSOLE */
+    .hero-graphic {
+      background: var(--bg-hero);
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+
+    .hero-log {
+      background: #000;
+      border-radius: 12px;
+      padding: 15px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .log-ok { color: #4ade80; }
+    .log-fail { color: #fb7185; }
 
     /* SECTIONS */
     section {
-      padding: 40px;
       margin-top: 40px;
       background: var(--card);
       border-radius: 20px;
-      border: 1px solid rgba(56, 189, 248, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-5px);
+      padding: 35px;
+      border: 1px solid var(--border-subtle);
     }
 
     h2 {
       font-size: var(--font-h2);
       color: var(--accent);
       margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
     }
 
     h3 {
       font-size: var(--font-h3);
-      color: #fff;
-      margin-top: 0;
+      margin-bottom: 10px;
     }
 
     p, li {
-      font-size: var(--font-base);
-      color: var(--primary);
-      opacity: 0.9;
+      font-size: var(--font-body);
     }
 
-    /* GRID LAYOUTS */
-    .two-col {
+    .two-column {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 30px;
     }
 
-    .skill-pill {
-      display: inline-block;
-      padding: 8px 18px;
+    .pill {
+      font-size: 14px;
+      padding: 6px 14px;
       background: var(--card-soft);
-      border: 1px solid var(--accent);
+      border: 1px solid var(--border-subtle);
       border-radius: 50px;
-      font-size: var(--font-small);
-      margin: 5px;
-      color: var(--accent);
+      margin-right: 8px;
+      margin-bottom: 8px;
+      display: inline-block;
     }
 
-    /* FOOTER */
+    .card-muted {
+      background: var(--card-soft);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px dashed var(--muted);
+    }
+
     footer {
       text-align: center;
-      padding: 40px;
-      font-size: var(--font-small);
+      padding: 50px 0;
       color: var(--muted);
+      font-size: 16px;
     }
 
-    /* MOBILE RESPONSIVENESS */
-    @media (max-width: 850px) {
-      .hero, .two-col {
-        grid-template-columns: 1fr;
-      }
-      .hero h1 { font-size: 32px; }
-      nav ul { display: none; }
+    @media (max-width: 880px) {
+      .hero, .two-column { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-<body>
-
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <div class="avatar">MD</div>
-        <div style="line-height:1.2">
-          <strong style="font-size: 20px; display: block;">Morakinyo Dada</strong>
-          <small style="color: var(--accent); font-size: 14px;">Quality Assurance Specialist</small>
-        </div>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#qa">Skills</a></li>
-          <li><a href="#projects">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <a href="https://github.com/MorakinyoDada/qa-portfolio" class="primary-btn" target="_blank">View GitHub</a>
-    </div>
-  </header>
-
+<body id="body">
   <div class="page">
-    <!-- HERO SECTION -->
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="avatar">MD</div>
+          <div class="brand-text">
+            <h1>Morakinyo Dada</h1>
+            <p>Quality Assurance Tester · Aviation → Software</p>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#qa">Skills</a></li>
+            <li><a href="#projects">Portfolio</a></li>
+            <li>
+              <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="theme-icon">🌙</span> <span id="theme-label">Dark View</span>
+              </button>
+            </li>
+            <li>
+              <a class="primary-link" href="https://github.com/MorakinyoDada/qa-portfolio" target="_blank">QA Portfolio</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <main>
-      <section class="hero" style="background: transparent; border: none; box-shadow: none;">
-        <div>
-          <h1>Aviation Discipline Applied to Software Quality.</h1>
-          <p class="hero-subtitle">
-            Transitioning 15 years of safety-critical leadership into software testing. 
-            I ensure high-risk digital systems operate with zero-failure precision.
-          </p>
-          <div style="display: flex; gap: 15px;">
-            <span class="skill-pill">Manual Testing</span>
-            <span class="skill-pill">API Validation</span>
-            <span class="skill-pill">SQL Testing</span>
-          </div>
-        </div>
-        <div class="hero-graphic">
-          <div style="color: var(--success)">[+] Test Suite: Login_Flow</div>
-          <div style="padding-left: 20px;">
-            > Validating Backend SQL... <span style="color: var(--success)">DONE</span><br>
-            > Testing API Endpoints... <span style="color: var(--success)">200 OK</span><br>
-            > Boundary Value Check... <span style="color: var(--warning)">RETRY</span><br>
-            > Defect Found: bug_021 logged<br>
-            > <span style="color: var(--accent)">Report generated successfully.</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT SECTION -->
-      <section id="about">
-        <h2>About Me</h2>
-        <div class="two-col">
+      <!-- HERO -->
+      <section style="background:none; border:none; box-shadow:none;">
+        <div class="hero">
           <div>
-            <p>
-              With 15+ years in aviation safety leadership—including roles as a Cabin Crew Supervisor and Inflight Manager—I bring an unmatched level of accountability and precision to the QA field.
+            <div class="hero-highlight">
+              <span class="hero-highlight-dot"></span>
+              <span>Early‑career QA · Backed by 15+ years in aviation safety</span>
+            </div>
+            <h2 id="hero-title" class="hero-title">
+              I apply the same discipline from aviation safety to ensuring software quality.
+            </h2>
+            <p class="hero-subtitle">
+              I specialize in manual and exploratory testing, API checks, and SQL‑based validation for high‑risk flows like login, payments, and bookings.
             </p>
-            <p>
-              In aviation, skipping a checklist can be fatal. In software, it causes system crashes. I apply that same "no-failure" mindset to finding defects, validating requirements, and ensuring seamless user experiences.
-            </p>
+            <div class="hero-actions">
+              <a class="primary-link" href="#projects">View QA projects</a>
+              <a class="ghost-link" href="https://github.com/MorakinyoDada/qa-portfolio" target="_blank">GitHub Portfolio</a>
+            </div>
           </div>
-          <div style="background: var(--card-soft); padding: 25px; border-radius: 15px; border-left: 4px solid var(--accent);">
-            <h3 style="font-size: 18px;">Why Hire Me?</h3>
-            <ul style="padding-left: 20px;">
-              <li>Strict adherence to testing protocols.</li>
-              <li>Clear documentation of complex incidents.</li>
-              <li>Calm problem-solving under pressure.</li>
-              <li>User-centric quality mindset.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
 
-      <!-- SKILLS SECTION -->
-      <section id="qa">
-        <h2>QA Expertise</h2>
-        <div class="two-col">
-          <div>
-            <h3>Testing Methodologies</h3>
-            <ul>
-              <li>Manual, Exploratory & Regression Testing</li>
-              <li>Test Case Design (Positive/Negative/Edge)</li>
-              <li>End-to-End Workflow Validation</li>
-              <li>Bug Lifecycle Management (Jira/GitHub)</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Technical Stack</h3>
-            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-              <span class="skill-pill">Postman (API)</span>
-              <span class="skill-pill">SQL (Backend)</span>
-              <span class="skill-pill">Jira</span>
-              <span class="skill-pill">Selenium</span>
-              <span class="skill-pill">GitHub</span>
-              <span class="skill-pill">HTML/CSS</span>
+          <div class="hero-graphic">
+            <div class="hero-log">
+              <div>[00:00] Suite: <span class="log-ok">Login_Path</span></div>
+              <div>[00:04] Credentials: <span class="log-ok">PASSED</span></div>
+              <div>[00:13] SQL Data: <span class="log-ok">MATCH</span></div>
+              <div>[00:17] Password: <span class="log-fail">BUG #QA‑021</span></div>
+              <div>[00:19] Defect Logged...</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PORTFOLIO SECTION -->
-      <section id="projects">
-        <h2>QA Portfolio</h2>
-        <div class="two-col">
-          <div style="background: var(--card-soft); padding: 30px; border-radius: 15px; border: 1px solid var(--border-subtle);">
-            <h3>Manual QA Case Study</h3>
-            <p><strong>Focus:</strong> Login & Access Control Security</p>
-            <p>
-              Validated a high-risk login module using boundary value analysis and SQL injection checks. Documented 15+ test cases and identified critical session-handling defects.
-            </p>
-            <a href="https://github.com/MorakinyoDada/qa-portfolio" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold;">View Artifacts →</a>
-          </div>
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-header"><h2>About Me</h2></div>
+        <div class="two-column">
           <div>
-            <h3 style="margin-top: 15px;">Key Deliverables</h3>
+            <p>I am an early‑career Quality Assurance professional with over 15 years of experience in safety‑critical operations. My transition into software quality was intentional and skills‑driven.</p>
+            <p>I bring a calm, methodical, people‑focused approach to every test cycle, ensuring that procedural accuracy is never compromised.</p>
+          </div>
+          <div class="card-muted">
+            <strong>Aviation-to-QA Mindset:</strong>
             <ul>
-              <li>Comprehensive Test Plans</li>
-              <li>Detailed Defect Reports (Severity/Impact)</li>
-              <li>API Collection Documentation</li>
-              <li>SQL Verification Scripts</li>
+              <li>Discipline around safety checklists.</li>
+              <li>Clear communication during incidents.</li>
+              <li>Thorough incident documentation.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT SECTION -->
-      <section id="contact" style="background: linear-gradient(135deg, var(--card), var(--bg-hero)); border: 1px solid var(--accent);">
-        <h2>Let's Connect</h2>
-        <p style="font-size: 20px;">Ready to bring precision and excellence to your QA team.</p>
-        <div class="two-col" style="margin-top: 20px;">
-          <div style="font-size: 18px;">
-            <strong>Phone:</strong> <a href="tel:+15065367700" style="color: var(--accent);">+1 (506) 536-7700</a><br>
-            <strong>Email:</strong> <a href="mailto:peter.akindada@gmail.com" style="color: var(--accent);">peter.akindada@gmail.com</a>
+      <!-- QA SKILLS -->
+      <section id="qa">
+        <h2>Quality Assurance Skills</h2>
+        <div class="two-column">
+          <div>
+            <p>My approach focuses on designing clear test cases, validating behavior across layers, and documenting defects to improve product quality.</p>
+            <ul>
+              <li>Manual and exploratory testing.</li>
+              <li>API testing using Postman.</li>
+              <li>SQL queries for data validation.</li>
+              <li>Jira & GitHub for tracking.</li>
+            </ul>
           </div>
-          <div style="text-align: right;">
-            <a href="https://github.com/MorakinyoDada" target="_blank" class="primary-btn">Follow on GitHub</a>
+          <div>
+            <span class="pill">Test Case Design</span>
+            <span class="pill">Postman</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Jira</span>
+            <span class="pill">Bug Reporting</span>
+            <span class="pill">Selenium</span>
           </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <h2>QA Projects</h2>
+        <div class="two-column">
+          <article>
+            <h3>Manual QA Portfolio</h3>
+            <p>A structured portfolio demonstrating the full QA lifecycle: test plans, manual test cases, and bug reports with clear repro steps.</p>
+            <a href="https://github.com/MorakinyoDada/qa-portfolio" target="_blank" style="color:var(--accent); font-weight:bold;">View on GitHub →</a>
+          </article>
+          <div class="card-muted">
+            <strong>Login Testing Logic:</strong>
+            <p>Valid Credentials: <span class="log-ok">Allow</span></p>
+            <p>SQL Injection: <span class="log-fail">Block</span></p>
+            <p>Edge Case: <span class="log-ok">Handle</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>I’m open to early‑career QA roles where attention to detail is valued.</p>
+        <div style="font-size: 18px;">
+          📞 Phone: <a href="tel:+15065367700">+1 (506) 536-7700</a><br>
+          📧 Email: <a href="mailto:peter.akindada@gmail.com">peter.akindada@gmail.com</a>
         </div>
       </section>
     </main>
 
-    <footer>
-      &copy; 2026 Morakinyo Dada | Moncton, New Brunswick, CA
-    </footer>
+    <footer>© Morakinyo Dada · Quality Assurance Tester</footer>
   </div>
 
+  <script>
+    function toggleTheme() {
+      const body = document.getElementById('body');
+      const icon = document.getElementById('theme-icon');
+      const label = document.getElementById('theme-label');
+      
+      body.classList.toggle('light-theme');
+      
+      if (body.classList.contains('light-theme')) {
+        icon.innerText = '☀️';
+        label.innerText = 'Light View';
+        localStorage.setItem('theme', 'light');
+      } else {
+        icon.innerText = '🌙';
+        label.innerText = 'Dark View';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Load saved preference
+    window.onload = () => {
+      if (localStorage.getItem('theme') === 'light') {
+        document.getElementById('body').classList.add('light-theme');
+        document.getElementById('theme-icon').innerText = '☀️';
+        document.getElementById('theme-label').innerText = 'Light View';
+      }
+    };
+  </script>
 </body>
 </html>
